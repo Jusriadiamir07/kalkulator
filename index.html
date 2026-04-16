@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Scientific + NLP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="display-section">
+                <div class="history" id="history"></div>
+                <div class="display" id="display">0</div>
+            </div>
+            
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="calc">Kalkulator</button>
+                <button class="mode-btn" data-mode="nlp">NLP Soal Cerita</button>
+            </div>
+
+            <!-- Calculator Mode -->
+            <div class="calc-mode" id="calcMode">
+                <div class="buttons">
+                    <button class="btn func" onclick="handleFunction('inv')">INV</button>
+                    <button class="btn func" onclick="handleFunction('deg')">DEG</button>
+                    <button class="btn func" onclick="handleFunction('factorial')">x!</button>
+                    <button class="btn clear" onclick="clearDisplay()">C</button>
+                    <button class="btn func" onclick="handleOperator('%')">%</button>
+                    <button class="btn func" onclick="handleFunction('multiply')">×</button>
+                    <button class="btn func" onclick="handleFunction('divide')">÷</button>
+                    
+                    <button class="btn func" onclick="handleFunction('sin')">sin</button>
+                    <button class="btn func" onclick="handleFunction('cos')">cos</button>
+                    <button class="btn func" onclick="handleFunction('tan')">tan</button>
+                    <button class="btn num" onclick="appendNumber('7')">7</button>
+                    <button class="btn num" onclick="appendNumber('8')">8</button>
+                    <button class="btn num" onclick="appendNumber('9')">9</button>
+                    <button class="btn func" onclick="handleOperator('*')">×</button>
+                    
+                    <button class="btn func" onclick="handleFunction('ln')">ln</button>
+                    <button class="btn func" onclick="handleFunction('log')">log</button>
+                    <button class="btn func" onclick="handleFunction('power')">x^y</button>
+                    <button class="btn num" onclick="appendNumber('4')">4</button>
+                    <button class="btn num" onclick="appendNumber('5')">5</button>
+                    <button class="btn num" onclick="appendNumber('6')">6</button>
+                    <button class="btn func" onclick="handleOperator('-')">−</button>
+                    
+                    <button class="btn func" onclick="handleFunction('pi')">π</button>
+                    <button class="btn func" onclick="handleFunction('e')">e</button>
+                    <button class="btn func" onclick="handleFunction('sqrt')">√</button>
+                    <button class="btn num" onclick="appendNumber('1')">1</button>
+                    <button class="btn num" onclick="appendNumber('2')">2</button>
+                    <button class="btn num" onclick="appendNumber('3')">3</button>
+                    <button class="btn func" onclick="handleOperator('+')">+</button>
+                    
+                    <button class="btn func" onclick="toggleMemory()">M</button>
+                    <button class="btn func" onclick="handleFunction('parenthesis')">()</button>
+                    <button class="btn func" onclick="handleFunction('square')">x²</button>
+                    <button class="btn num" onclick="appendNumber('00')">00</button>
+                    <button class="btn num" onclick="appendNumber('0')">0</button>
+                    <button class="btn num" onclick="appendNumber('.')">,</button>
+                    <button class="btn equals" onclick="calculate()">=</button>
+                </div>
+            </div>
+
+            <!-- NLP Mode -->
+            <div class="nlp-mode hidden" id="nlpMode">
+                <div class="nlp-input-section">
+                    <textarea 
+                        id="nlpInput" 
+                        placeholder="Masukkan soal cerita matematika...&#10;&#10;Contoh:&#10;- Sebuah mobil bergerak dengan kecepatan 60 km/jam selama 2,5 jam. Berapa jarak yang ditempuh?&#10;- Pak Ahmad membeli 5 kg apel dengan harga Rp 15.000 per kg. Berapa total yang harus dibayar?&#10;- Sebuah lingkaran memiliki jari-jari 7 cm. Hitung luas lingkaran tersebut!"
+                        rows="6"
+                    ></textarea>
+                    <button class="solve-btn" onclick="solveNLP()">Selesaikan Soal</button>
+                </div>
+                
+                <div class="nlp-result" id="nlpResult">
+                    <div class="result-placeholder">
+                        Masukkan soal cerita matematika di atas dan klik "Selesaikan Soal"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
